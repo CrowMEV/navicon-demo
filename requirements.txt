@@ -1,5 +1,2 @@
-requests
-pytest
-pytest-cov
-pylint
-pylint-pytest
+poetry
+ipython

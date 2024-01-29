@@ -1,6 +1,8 @@
-def inc(x: int) -> int:
-    return x + 1
+import sqlalchemy as sq
 
+from settings import config
 
-def foo():
-    return 2
+engine = sq.create_engine(
+    config.dsn,
+    echo=True,
+)

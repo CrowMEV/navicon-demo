@@ -1,3 +1,35 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Evgeny Malikov <evgeny.m3v@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
+alembic = "^1.13.1"
+pydantic = "^2.5.3"
+pydantic-settings = "^2.1.0"
+configargparse = "^1.7"
+yarl = "^1.9.4"
+psycopg2-binary = "^2.9.9"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pylint = "^3.0.3"
+pytest-cov = "^4.1.0"
+pylint-pytest = "^1.1.7"
+mypy = "^1.8.0"
+sqlalchemy-utils = "^0.41.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+
 [tool.pylint]
 ignore = [".git", "__pycache__", "migrations", ".venv"]
 load-plugins = ["pylint_pytest"]
@@ -7,4 +39,3 @@ disable = ["C0114", "C0115", "C0116", "W1514", "W3101", "R0903", "W0511"]
 
 [tool.pytest.ini_options]
 addopts = "-v"
-
