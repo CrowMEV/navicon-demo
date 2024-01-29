@@ -8,7 +8,7 @@ from alembic.autogenerate import compare_metadata
 from alembic.command import upgrade
 from alembic.config import Config
 from alembic.runtime.migration import MigrationContext
-from app.models_relationship import Base
+from app.base_db import Base
 
 
 def test_migrations_up_to_date(

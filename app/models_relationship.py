@@ -15,7 +15,7 @@ class Artist(Base):
 class Album(Base):
     __tablename__ = "album"
     id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str]
+    title: Mapped[str | None]
     published: Mapped[datetime] = mapped_column(default=datetime.utcnow())
     id_artist: Mapped[int] = mapped_column(sa.ForeignKey("artist.id"))
     artist: Mapped["Artist"] = relationship(back_populates="albums")

@@ -4,8 +4,8 @@ from sqlalchemy import engine_from_config, pool
 
 from alembic import context
 from app.base_db import Base
-from app.models_relationship import *
-# from app.model_base import *
+# from app.models_relationship import *
+from app.model_base import *
 from app.settings import conf
 
 # this is the Alembic Config object, which provides
