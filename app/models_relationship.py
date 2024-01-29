@@ -22,30 +22,30 @@ class Album(Base):
     # tracks: Mapped[list["Track"]] = relationship(back_populates="album")
 
 
-# class Genre(Base):
-#     __tablename__ = "genre"
-#     id: Mapped[int] = mapped_column(primary_key=True)
-#     tracks: Mapped[list["Track"]] = relationship(
-#         secondary="track_to_genre", back_populates="genres"
-#     )
+class Genre(Base):
+    __tablename__ = "genre"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    tracks: Mapped[list["Track"]] = relationship(
+        secondary="track_to_genre", back_populates="genres"
+    )
 
 
-# track_to_genre = sa.Table(
-#     "track_to_genre",
-#     Base.metadata,
-#     sa.Column("genre_id", sa.Integer, sa.ForeignKey("genre.id")),
-#     sa.Column("track_id", sa.Integer, sa.ForeignKey("track.id")),
-# )
+track_to_genre = sa.Table(
+    "track_to_genre",
+    Base.metadata,
+    sa.Column("genre_id", sa.Integer, sa.ForeignKey("genre.id")),
+    sa.Column("track_id", sa.Integer, sa.ForeignKey("track.id")),
+)
 
 
-# class Track(Base):
-#     __tablename__ = "track"
-#     id: Mapped[int] = mapped_column(primary_key=True)
-#     title: Mapped[str]
-#     duration: Mapped[int]
+class Track(Base):
+    __tablename__ = "track"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+    duration: Mapped[int]
 
-#     id_album: Mapped[int] = mapped_column(sa.ForeignKey("album.id"))
-#     genres: Mapped[list[Genre]] = relationship(
-#         secondary=track_to_genre, back_populates="tracks"
-#     )
-#     album: Mapped["Album"] = relationship(back_populates="tracks")
+    # id_album: Mapped[int] = mapped_column(sa.ForeignKey("album.id"))
+    genres: Mapped[list[Genre]] = relationship(
+        secondary=track_to_genre, back_populates="tracks"
+    )
+    # album: Mapped["Album"] = relationship(back_populates="tracks")
