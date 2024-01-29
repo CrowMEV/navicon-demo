@@ -1,4 +1,4 @@
-# import enum
+import enum
 
 # import sqlalchemy as sq
 # from base_db import Base
