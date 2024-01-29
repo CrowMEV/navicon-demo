@@ -12,14 +12,14 @@ class Artist(Base):
     # albums: Mapped[list["Album"]] = relationship(back_populates="artist")
 
 
-# class Album(Base):
-#     __tablename__ = "album"
-#     id: Mapped[int] = mapped_column(primary_key=True)
-#     title: Mapped[str]
-#     published: Mapped[datetime] = mapped_column(default=datetime.utcnow())
-#     id_artist: Mapped[int] = mapped_column(sa.ForeignKey("artist.id"))
-#     artist: Mapped["Artist"] = relationship(back_populates="albums")
-#     tracks: Mapped[list["Track"]] = relationship(back_populates="album")
+class Album(Base):
+    __tablename__ = "album"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str]
+    published: Mapped[datetime] = mapped_column(default=datetime.utcnow())
+    id_artist: Mapped[int] = mapped_column(sa.ForeignKey("artist.id"))
+    artist: Mapped["Artist"] = relationship(back_populates="albums")
+    # tracks: Mapped[list["Track"]] = relationship(back_populates="album")
 
 
 # class Genre(Base):
